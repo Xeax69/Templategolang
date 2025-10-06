@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information Form</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personal Information Form</h1>
+            <p>Please fill out your information to generate your ID card</p>
+        </header>
+        
+        <main>
+            <form class="info-form" action="/idcard" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required min="1" max="120" placeholder="Enter your age">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required placeholder="Enter your location">
+                </div>
+                
+                <div class="form-group">
+                    <label for="job">Job Title:</label>
+                    <input type="text" id="job" name="job" required placeholder="Enter your job title">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Generate ID Card</button>
+                    <button type="reset" class="reset-btn">Clear Form</button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

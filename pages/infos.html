@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card - {{.Name}}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personal ID Card</h1>
+        </header>
+        
+        <main>
+            <div class="id-card">
+                <div class="card-header">
+                    <h2>IDENTIFICATION CARD</h2>
+                </div>
+                
+                <div class="card-body">
+                    <div class="profile-section">
+                        <div class="avatar">
+                            <span class="avatar-initials">{{slice .Name 0 1}}{{if gt (len .Name) 1}}{{slice .Name 1 2}}{{end}}</span>
+                        </div>
+                        
+                        <div class="personal-info">
+                            <h3 class="full-name">{{.Name}}</h3>
+                            <p class="job-title">{{.Job}}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="details-section">
+                        <div class="detail-row">
+                            <span class="label">Age:</span>
+                            <span class="value">{{.Age}} years old</span>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="label">Email:</span>
+                            <span class="value">{{.Email}}</span>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="label">Location:</span>
+                            <span class="value">{{.Location}}</span>
+                        </div>
+                        
+                        <div class="detail-row">
+                            <span class="label">Profession:</span>
+                            <span class="value">{{.Job}}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer">
+                    <small>Generated on: <span id="current-date"></span></small>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <a href="/" class="btn btn-secondary">← Back to Form</a>
+                <button onclick="window.print()" class="btn btn-primary">🖨️ Print Card</button>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
